@@ -1,0 +1,300 @@
+:root {
+    --primary-light: rgb(255, 255, 255);
+    --secondary-light: rgb(245, 245, 245);
+    --accent-light: rgb(0, 174, 239);
+    --background-light: rgb(240, 240, 240);
+    --text-light: #333333;
+
+    --primary-dark: rgb(44, 44, 84);
+    --secondary-dark: rgb(29, 99, 147);
+    --accent-dark: rgb(100, 160, 175);
+    --background-dark: rgb(30, 30, 50);
+    --text-dark: rgb(238, 238, 238);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-light);
+    color: var(--text-light);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+    background: var(--primary-light);
+    color: var(--text-light);
+    padding: 1em 0;
+    text-align: center;
+    position: relative;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header h1 a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.theme-switch {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background: var(--primary-light);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.theme-switch .emoji {
+    position: absolute;
+    font-size: 1.2em;
+    transition: opacity 0.3s;
+}
+
+.theme-switch .sun {
+    left: 5px;
+}
+
+.theme-switch .moon {
+    right: 5px;
+}
+
+.theme-switch .slider {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    transition: transform 0.3s, background-color 0.3s;
+    top: 1px; /* Center vertically */
+}
+
+.dark-theme .theme-switch .slider {
+    transform: translateX(30px);
+    background: var(--primary-dark);
+}
+
+.dark-theme .theme-switch .sun {
+    opacity: 0;
+}
+
+.dark-theme .theme-switch .moon {
+    opacity: 1;
+}
+
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+nav .nav-toggle {
+    display: none;
+}
+
+nav .nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav .nav-menu li {
+    margin: 0 1em;
+}
+
+nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--accent-light);
+}
+
+main {
+    padding: 2em;
+    background-color: var(--background-light);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    animation: slideInUp 0.5s ease-in-out;
+}
+
+footer {
+    background: var(--primary-light);
+    color: var(--text-light);
+    text-align: center;
+    padding: 1em 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+h2 {
+    color: var(--text-light);
+    transition: color 0.3s;
+}
+
+section {
+    margin-bottom: 2em;
+    animation: slideInUp 0.5s ease-in-out;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+label, input, textarea {
+    margin-bottom: 1em;
+}
+
+input, textarea {
+    padding: 0.5em;
+    border: 1px solid var(--secondary-light);
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--background-light);
+    color: var(--text-light);
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    background-color: var(--secondary-light);
+    color: var(--text-light);
+    border: none;
+    padding: 0.5em;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: var(--accent-light);
+    transform: scale(1.05);
+}
+
+.dark-theme {
+    --primary-light: var(--primary-dark);
+    --secondary-light: var(--secondary-dark);
+    --accent-light: var(--accent-dark);
+    --background-light: var(--background-dark);
+    --text-light: var(--text-dark);
+}
+
+.contact-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2em;
+    background-color: var(--primary-light);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.contact-box .caption {
+    margin-bottom: 1em;
+}
+
+.contact-box .caption h2 {
+    margin: 0;
+    color: var(--text-light);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    header, footer {
+        padding: 1em;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav .nav-toggle {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        position: relative;
+        z-index: 1000;
+    }
+
+    nav .nav-toggle .hamburger {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background: var(--text-light);
+        margin: 5px 0;
+        transition: all 0.3s;
+    }
+
+    nav .nav-toggle.open .hamburger:nth-child(1) {
+        transform: rotate(45deg) translateY(7px);
+    }
+
+    nav .nav-toggle.open .hamburger:nth-child(2) {
+        opacity: 0;
+    }
+
+    nav .nav-toggle.open .hamburger:nth-child(3) {
+        transform: rotate(-45deg) translateY(-7px);
+    }
+
+    nav .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: var(--primary-light);
+        padding: 1em;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    nav .nav-menu.active {
+        display: flex;
+    }
+
+    nav .nav-menu li {
+        margin: 0.5em 0;
+    }
+
+    form {
+        max-width: 100%;
+        margin: 0;
+    }
+
+    button {
+        width: 100%;
+    }
+}
